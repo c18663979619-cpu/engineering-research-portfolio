@@ -1,0 +1,7 @@
+Reference,Component,Quantity,Value_or_rating,Package_or_footprint,Notes
+Q1 Q2,NPN BJT,2,2N3904 example; 40 V 200 mA,TO-92,Confirm the actual fitted transistor model before fabrication
+R1 R4,Collector resistor,2,1 kΩ 0.25 W ±5%,AXIAL-11.7MM-PITCH,Also serves as LED current-limiting resistor in the reported design
+R2 R3,Base resistor,2,47 kΩ 0.25 W ±5%,AXIAL-11.7MM-PITCH,
+C1 C2,Coupling capacitor,2,5.1 µF 25 V radial,RADIAL-12.5MM-DIA,Observe polarity in the PCB layout
+D1 D2,Red indicator LED,2,Red 5 mm,LED5MM,Reported typical forward voltage approximately 2 V
+U$2,9 V battery connector,1,9 V DC snap/header,BATTERY9VGENERIC,Verify connector pin polarity
