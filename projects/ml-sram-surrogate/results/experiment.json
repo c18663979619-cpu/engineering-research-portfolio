@@ -1,0 +1,56 @@
+{
+  "status": "In progress \u2014 milestone 0",
+  "source_revision": "70023883ea8ac17d4296a5396efb0eae3d4ac80e",
+  "source_manifest_sha256": "16fc9a630047e2c3e13a4b3d5463c0610b96ca9a06251e8a7599835f2ea110e9",
+  "baseline_script_sha256": "6007f8832e8548f860bbe86baeb88c149056fc5a6946f18800f158f5cb59647f",
+  "supply_v": 1.0,
+  "features": [
+    "vth_n1_v",
+    "vth_p1_v",
+    "vth_n2_v",
+    "vth_p2_v"
+  ],
+  "target": "snm_1v_mv",
+  "split": {
+    "generator": "numpy.default_rng / PCG64",
+    "seed": 42,
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "train_ids_sha256": "0296980c4ac198a518f4898c1d92ebcfa14de62ff5c2cf535b220110a6b0e4eb",
+    "test_ids_sha256": "82ee81ac9311af12264078e4b032d7d1e40d8706c1b05df9f9d40c2c75d1d0d1"
+  },
+  "fit": {
+    "method": "ordinary least squares with intercept, numpy.linalg.lstsq",
+    "feature_center_v": [
+      0.40004358926173145,
+      0.4009145157090866,
+      0.39958955249221384,
+      0.39992192400582416
+    ],
+    "intercept_mv": 229.12229403087187,
+    "coefficients_mv_per_v": [
+      1.873292153378264,
+      -9.127038924403118,
+      -2.7113019799117732,
+      1.8527739418944758
+    ]
+  },
+  "test_below_180mv_count": 0,
+  "metrics": {
+    "training_mean": {
+      "mae_mv": 9.566811858054747,
+      "rmse_mv": 11.82222116790755,
+      "r2": -9.746919230013695e-05
+    },
+    "linear_regression": {
+      "mae_mv": 9.565031537883264,
+      "rmse_mv": 11.827382345765853,
+      "r2": -0.0009708765744802506
+    }
+  },
+  "environment": {
+    "python": "3.12.6",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.7"
+  }
+}

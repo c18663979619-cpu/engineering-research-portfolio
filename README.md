@@ -8,6 +8,7 @@ Projects exploring **electronics and computer engineering** through circuit anal
 |---|---|---|---|
 | [Behavioral SRAM stability](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo/tree/70023883ea8ac17d4296a5396efb0eae3d4ac80e) | How do threshold mismatch and supply assumptions affect static stability? | Python/NumPy modeling, Monte Carlo analysis, numerical verification, uncertainty | Executed notebook, 10,000 samples, four figures, data and tests |
 | [BJT oscillator and PCB](projects/bjt-astable-multivibrator-pcb/) | How can an approximately 3 Hz oscillator be analyzed and translated into a compact PCB? | Circuit calculations, SPICE interpretation, schematic capture, placement and routing | Reported waveforms, native Fusion exports, BOM, check records |
+| [ML surrogate for behavioral SRAM stability — In progress](projects/ml-sram-surrogate/) | Can regression approximate numerical stability calculations, and where does it fail? | Initial dataset preparation and NumPy regression baselines; nonlinear methods planned | Reproducible split, initial error table, prediction plot |
 
 ## 01 · Computational modeling: behavioral SRAM stability
 
@@ -32,6 +33,14 @@ Projects exploring **electronics and computer engineering** through circuit anal
 *The waveform predates the LED adaptation. A later PCB check shows 12 warnings awaiting review; fabrication and bench measurements are not documented. The case study explains these verification boundaries and the next steps.*
 
 [Explore the design case study →](projects/bjt-astable-multivibrator-pcb/)
+
+## 03 · Machine learning for circuit analysis — In progress
+
+**Question.** Can a learned surrogate approximate the behavioral SRAM calculation accurately enough to support faster parameter studies?
+
+**Current milestone.** Reuse 10,000 synthetic samples at 1.0 V, fit training-mean and linear-regression baselines, and evaluate on 2,000 held-out samples. Both give approximately **9.57 mV MAE**; raw linear regression offers no meaningful improvement. Nonlinear modeling, multi-voltage generalization, and timing experiments are planned.
+
+[View the initial experiment and roadmap →](projects/ml-sram-surrogate/)
 
 ## Research approach
 

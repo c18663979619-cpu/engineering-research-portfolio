@@ -1,0 +1,69 @@
+{
+  "repository": "c18663979619-cpu/sram-reliability-monte-carlo",
+  "revision": "70023883ea8ac17d4296a5396efb0eae3d4ac80e",
+  "raw_base_url": "https://raw.githubusercontent.com/c18663979619-cpu/sram-reliability-monte-carlo/70023883ea8ac17d4296a5396efb0eae3d4ac80e/data/samples_1v",
+  "total_rows": 10000,
+  "supply_v": 1.0,
+  "parts": [
+    {
+      "file": "part-001.csv",
+      "sha256": "9cd9d561d531e3b1082482410e240b7d22155ae8bff5d674e333f96fd81dd60f",
+      "git_blob_sha": "546b7c64bda028f4e03214fef5e23d59361b7b21",
+      "rows": 1000
+    },
+    {
+      "file": "part-002.csv",
+      "sha256": "697eacd1f46b0d0b3dc31e3d11eacc313f9e11f6d55c1566c5844f948003d06f",
+      "git_blob_sha": "4850d21775c9ada8772986dce6d44fa42fe06d82",
+      "rows": 1000
+    },
+    {
+      "file": "part-003.csv",
+      "sha256": "494852847c5010329651eff7aded602fbe2970dc997235f0a1d2d437d5d43a6e",
+      "git_blob_sha": "2d5774e13ea3c916aa77454f095171cf4e1bca76",
+      "rows": 1000
+    },
+    {
+      "file": "part-004.csv",
+      "sha256": "a47c12d8f8d49078d6905b36b3e08d7e6a0c2aa51ecf26b0507f4c4ed4f223d8",
+      "git_blob_sha": "be1c70d140f5eb805cc297ba4f65eebd639c9ce3",
+      "rows": 1000
+    },
+    {
+      "file": "part-005.csv",
+      "sha256": "e72c4e68ecf99d6e9e3c7279faee381aefe0d43d0d82ac34fa133f373d94196c",
+      "git_blob_sha": "46f7d11c55a8f6c491c6af47640b4a705b81382e",
+      "rows": 1000
+    },
+    {
+      "file": "part-006.csv",
+      "sha256": "e0d82bda5348988df29b3729f63824fb0fa7c3f6b5073a3ded03343a5c189d9a",
+      "git_blob_sha": "a3627bd78b58f7215f0347f7d9e8f30a1c7220fa",
+      "rows": 1000
+    },
+    {
+      "file": "part-007.csv",
+      "sha256": "94cd48f4957c3a08c78d674a586947656c365cf7c78702af952809a8a7f5b953",
+      "git_blob_sha": "15559467bb4063f57dbe7eb5a360a758df4d6877",
+      "rows": 1000
+    },
+    {
+      "file": "part-008.csv",
+      "sha256": "2888ec18e09a56336ee3734c91e2ad8ebdf3eb1e8039b705f90197e593cb9b3e",
+      "git_blob_sha": "510209e2e94e0a915ed55394d2e07c2330234f6c",
+      "rows": 1000
+    },
+    {
+      "file": "part-009.csv",
+      "sha256": "169f6eb205843dd6f4ea939b784e82f59fac49d5284a5b7c20c0c4817cd70219",
+      "git_blob_sha": "9f0a649659b59858a8d4d33ad0284dfca82df16b",
+      "rows": 1000
+    },
+    {
+      "file": "part-010.csv",
+      "sha256": "fa150b6fdafde4705fcc72984a1a3d673bbba742c2eea9ecf62d7826a3e0b312",
+      "git_blob_sha": "47e2049f640b6ec5cc72ddfa3c7b4d66740455eb",
+      "rows": 1000
+    }
+  ]
+}
