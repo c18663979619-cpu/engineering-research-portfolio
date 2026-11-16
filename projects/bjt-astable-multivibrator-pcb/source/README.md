@@ -1,10 +1,12 @@
 # Native Fusion Electronics source
 
-This folder contains the editable Autodesk Fusion Electronics exports for the BJT astable multivibrator project:
+| File | Contents |
+|---|---|
+| `5CCE2EMP_Astable_Multivibrator_Schematic.fsch` | Final PCB schematic, including battery connector and LEDs |
+| `5CCE2EMP_Astable_Multivibrator_Board.fbrd` | Corresponding supplied 2D board export |
 
-- `5CCE2EMP_Astable_Multivibrator_Schematic.fsch` — schematic document
-- `5CCE2EMP_Astable_Multivibrator_Board.fbrd` — PCB document
+Both original exports are retained without modification. Open working copies in Fusion Electronics and verify their association and consistency. See [the reproduction guide](../docs/reproducibility.md).
 
-Open each file in Autodesk Fusion Electronics to inspect or continue editing the corresponding design. The files were exported separately. This folder does not include the complete SPICE model configuration, custom library dependencies, or a verified end-to-end simulation setup, so the project should not yet be described as fully reproducible from these files alone.
+The schematic includes a generic `.MODEL QNPN NPN` definition. It is not a confirmed 2N3904 model or a complete recreation of the pre-LED simulation shown in the report. The embedded XML version `9.7.0` is not the recorded application version.
 
-The submitted report records zero ERC/DRC errors and warnings. A later Fusion PCB check screenshot shows zero errors and 12 warnings, with solder-mask warnings visible after a design-rule update. Review the warnings in the current Fusion version before manufacturing or claiming the board is clear of DRC warnings.
+[Source inventory and SHA-256 hashes](../docs/source-inventory.json) can be regenerated with `python scripts/inspect_sources.py` from the project directory. Library definitions and linked assets retain their original provenance; no new open-source license is assigned to those dependencies by this revision.

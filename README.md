@@ -1,43 +1,44 @@
-# Engineering Research & Design Portfolio
+# Mohan Chen | Engineering Research & Design Portfolio
 
-Engineering projects exploring reliability, circuit behavior, and hardware implementation through simulation, statistical analysis, and design verification. This portfolio connects computational engineering studies with circuit and PCB design. Each project states its question, assumptions, evidence, reproducibility steps, and limitations.
+Projects exploring **electronics and computer engineering** through circuit analysis, numerical modeling, and hardware design. Each case study connects an engineering question with an explicit method, evidence, reproducible artifacts, and limitations.
 
 ## Selected projects
 
-### SRAM reliability under process variation — computational study
+| Project | Engineering question | Work demonstrated | Evidence |
+|---|---|---|---|
+| [Behavioral SRAM stability](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo/tree/70023883ea8ac17d4296a5396efb0eae3d4ac80e) | How do threshold mismatch and supply assumptions affect static stability? | Python/NumPy modeling, Monte Carlo analysis, numerical verification, uncertainty | Executed notebook, 10,000 samples, four figures, data and tests |
+| [BJT oscillator and PCB](projects/bjt-astable-multivibrator-pcb/) | How can an approximately 3 Hz oscillator be analyzed and translated into a compact PCB? | Circuit calculations, SPICE interpretation, schematic capture, placement and routing | Reported waveforms, native Fusion exports, BOM, check records |
 
-**Question:** How do modeled transistor-threshold variation and supply-voltage scaling affect the stability of a 6T SRAM bit cell?
+## 01 · Computational modeling: behavioral SRAM stability
 
-**Method:** A vectorized Python/NumPy Monte Carlo model evaluates static noise margin (SNM), with analysis across 10,000 randomized cells and multiple supply voltages.
+**Method.** Model a pair of cross-coupled inverter voltage-transfer curves, apply independent threshold variation, and extract static noise margin over 10,000 samples and nine supply voltages. Compare the batched calculation against an independent reference and quantify finite-sample uncertainty.
 
-**Reported result:** At VDD = 1.0 V, the repository reports a mean SNM of 229.1 mV, a 12.1 mV standard deviation, and 8 of 10,000 cells below a 180 mV threshold.
+**Result.** At 1.0 V and assumed threshold σ = 40 mV, mean SNM is **229.15 mV**. **8/10,000** samples fall below the chosen 180 mV criterion; the 95% Wilson interval is **0.041–0.158%**. Numerical comparisons on 66 cases at three supplies agree within **0.002 mV** at the default grid.
 
-**Scope:** This is a behavioral statistical study. Interpret the results within the model assumptions; they are not foundry process-corner simulations or silicon measurements.
+![Behavioral SNM and below-criterion fraction versus supply voltage](assets/sram-supply-sweep.png)
 
-[Open the SRAM project repository](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo)
+*Review snapshot using a fixed physical gain of 14 V⁻¹. The model is behavioral and uncalibrated; the results do not establish read/write yield or silicon reliability. This figure and the linked immutable revision belong to the same revision.*
 
-### 9 V BJT astable multivibrator — circuit and PCB design
+[Read the study and reproduce it →](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo/tree/70023883ea8ac17d4296a5396efb0eae3d4ac80e)
 
-**Question:** Can a cross-coupled NPN multivibrator be designed for approximately 3 Hz operation and laid out as a compact two-layer LED-flasher PCB?
+## 02 · Circuit and hardware design: BJT astable multivibrator
 
-**Method:** Component selection, transient SPICE analysis, schematic checks, and Autodesk Fusion Electronics PCB layout. This is an individual course design project for 5CCE2EMP.
+**Method.** Size the timing network, interpret transient switching, adapt the schematic for a battery and LEDs, and place/route a two-layer through-hole PCB. Completed as an individual 5CCE2EMP course design project.
 
-**Reported result:** The simulated oscillation is approximately 2.91 Hz; the 41.9 × 44.1 mm board is within the 50 × 50 mm limit, with one via and zero airwires. The submitted report records zero ERC/DRC errors and warnings. A later Fusion PCB check shows zero errors and 12 warnings, including solder-mask warnings after a design-rule update; those warnings have not yet been reviewed.
+**Result.** The report's pre-LED simulation gives approximately **2.91 Hz**. The final CAD board is approximately **41.9 × 44.1 mm**, with **one via and zero airwires**. Native schematic/board exports, analytical calculations, and a traceable BOM are included.
 
-Editable schematic and board exports are included in the PCB project's `source/` folder. The full simulation setup still needs model and version details.
+![Fusion CAD preview of the BJT oscillator board](projects/bjt-astable-multivibrator-pcb/docs/figures/pcb-3d-view.png)
 
-![3D view of the BJT multivibrator PCB](projects/bjt-astable-multivibrator-pcb/docs/figures/pcb-3d-view.png)
+*The waveform predates the LED adaptation. A later PCB check shows 12 warnings awaiting review; fabrication and bench measurements are not documented. The case study explains these verification boundaries and the next steps.*
 
-[Open the PCB case study](projects/bjt-astable-multivibrator-pcb/README.md)
+[Explore the design case study →](projects/bjt-astable-multivibrator-pcb/)
 
-## How I work
+## Research approach
 
-- Define the engineering question and success criterion.
-- State model assumptions, component values, and analysis settings.
-- Show evidence that supports each conclusion.
-- Separate simulation from physical measurement.
-- Record limitations and practical next steps.
+- Start with a question and a measurable criterion.
+- Make assumptions visible and compare theory with available evidence.
+- Preserve sources and parameters so another person can inspect the work.
+- Test numerical methods and separate simulation, design checks, and measurement.
+- Use discrepancies to identify the next useful experiment.
 
-## Current focus
-
-Building a coherent portfolio across electronics, computer engineering, reliability modeling, and reproducible engineering analysis.
+**Current interests:** electronic circuits, computer engineering, reliability modeling, and reproducible engineering analysis.
