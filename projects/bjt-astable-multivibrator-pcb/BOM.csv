@@ -1,7 +1,7 @@
-Reference,Component,Quantity,Value_or_rating,Package_or_footprint,Notes
-Q1 Q2,NPN BJT,2,2N3904 example; 40 V 200 mA,TO-92,Confirm the actual fitted transistor model before fabrication
-R1 R4,Collector resistor,2,1 kΩ 0.25 W ±5%,AXIAL-11.7MM-PITCH,Also serves as LED current-limiting resistor in the reported design
-R2 R3,Base resistor,2,47 kΩ 0.25 W ±5%,AXIAL-11.7MM-PITCH,
-C1 C2,Coupling capacitor,2,5.1 µF 25 V radial,RADIAL-12.5MM-DIA,Observe polarity in the PCB layout
-D1 D2,Red indicator LED,2,Red 5 mm,LED5MM,Reported typical forward voltage approximately 2 V
-U$2,9 V battery connector,1,9 V DC snap/header,BATTERY9VGENERIC,Verify connector pin polarity
+References,Component,Quantity,Design_value,Library_device,Native_board_package,Reported_rating_or_candidate,Selection_status,Notes
+Q1 Q2,NPN BJT,2,Generic NPN,Transistor NPN TO92-EBC,TO92,2N3904 example; 40 V 200 mA,Exact manufacturer part unconfirmed,Embedded QNPN model is generic; verify device pinout and reverse base-emitter stress
+R1 R4,Collector and LED resistor,2,1 kOhm,Tinkercad RESISTOR _AXIAL-11.7MM-PITCH,RESAD1176W63L850D250B,0.25 W +/-5% in report,Design value verified; purchasable part unconfirmed,Final circuit includes series LED
+R2 R3,Base timing resistor,2,47 kOhm,Tinkercad RESISTOR _AXIAL-11.7MM-PITCH,RESAD1176W63L850D250B,0.25 W +/-5% in report,Design value verified; purchasable part unconfirmed,Timing tolerance evaluated analytically
+C1 C2,Coupling capacitor,2,5.1 uF,Tinkercad CAPACITOR RADIAL-12.5MM-DIA,CAPRD550W60D1025H1250B,25 V radial in report; +/-20% analytical assumption,Design value verified; purchasable part unconfirmed,Verify availability lead spacing polarity and voltage through the full cycle
+D1 D2,Red indicator LED,2,LED_RED,Tinkercad LED_RADIAL RED,LEDRD254W60D565H860B,5 mm red; assumed Vf about 2 V; report lists 20 mA,Exact manufacturer part unconfirmed,6.8 mA is a nominal calculated estimate
+U$2,Battery connector,1,9 V DC,Tinkercad BATTERY-9V GENERIC,BATTERY-GENERIC,9 V snap/header in report,Exact connector unconfirmed,Verify positive and negative pin mapping

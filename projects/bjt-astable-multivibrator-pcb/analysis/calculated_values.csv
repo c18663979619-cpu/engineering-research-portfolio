@@ -1,0 +1,10 @@
+quantity,value,unit,assumption
+required_capacitance_for_3hz,5.139274334463974,uF,First-order RC model
+first_order_frequency,3.023102549684691,Hz,1/(1.38*RB*C)
+junction_drop_estimate,2.8858253089729864,Hz,Assumed VBE=0.7V; VCEsat=0.2V; pre-LED circuit
+frequency_from_report_edge_times,2.906976744186047,Hz,Rounded screenshot readings; not raw waveform data
+capacitor_only_min,2.5192521247372426,Hz,C +20%; R nominal
+capacitor_only_max,3.7788781871058634,Hz,C -20%; R nominal
+combined_tolerance_min,2.399287737844993,Hz,R +5%; C +20%; first-order model
+combined_tolerance_max,3.977766512743014,Hz,R -5%; C -20%; first-order model
+led_current_estimate,6.8,mA,Assumed LED Vf=2V; VCEsat=0.2V

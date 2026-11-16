@@ -1,0 +1,606 @@
+{
+  "method": "ZIP integrity and embedded XML inspection; no Fusion or SPICE rerun",
+  "sources": [
+    {
+      "file": "5CCE2EMP_Astable_Multivibrator_Board.fbrd",
+      "bytes": 22670,
+      "sha256": "c117c911124ffa34749067f8df542cd28bbccd9b81593a73d258867d572462a2",
+      "embedded_xml_version": "9.7.0",
+      "libraries": [
+        {
+          "name": "Tinkercad",
+          "urn": "urn:adsk.eagle:library:30890021"
+        },
+        {
+          "name": "Transistor",
+          "urn": "urn:adsk.eagle:library:16378713"
+        }
+      ],
+      "parts": [],
+      "elements": [
+        {
+          "name": "C1",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "CAPRD550W60D1025H1250B",
+          "package3d_urn": "urn:adsk.eagle:package:16290858/5",
+          "value": "5.1uF",
+          "base_value": "5.1uF",
+          "x": "15.24",
+          "y": "25.4",
+          "smashed": "yes"
+        },
+        {
+          "name": "C2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "CAPRD550W60D1025H1250B",
+          "package3d_urn": "urn:adsk.eagle:package:16290858/5",
+          "value": "5.1uF",
+          "base_value": "5.1uF",
+          "x": "27.94",
+          "y": "25.4",
+          "smashed": "yes"
+        },
+        {
+          "name": "D1",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "LEDRD254W60D565H860B",
+          "package3d_urn": "urn:adsk.eagle:package:16378508/2",
+          "value": "LED_RED",
+          "base_value": "LED_RED",
+          "x": "5.08",
+          "y": "26.67",
+          "smashed": "yes"
+        },
+        {
+          "name": "D2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "LEDRD254W60D565H860B",
+          "package3d_urn": "urn:adsk.eagle:package:16378508/2",
+          "value": "LED_RED",
+          "base_value": "LED_RED",
+          "x": "36.83",
+          "y": "26.67",
+          "smashed": "yes"
+        },
+        {
+          "name": "Q1",
+          "library": "Transistor",
+          "library_urn": "urn:adsk.eagle:library:16378713",
+          "package": "TO92",
+          "package3d_urn": "urn:adsk.wipprod:fs.file:vf.oI7jP7zWQdWuDi8O1pewdA?version=9",
+          "value": "NPN_TO92-EBC",
+          "base_value": "NPN_TO92-EBC",
+          "x": "11.43",
+          "y": "15.24",
+          "smashed": "yes"
+        },
+        {
+          "name": "Q2",
+          "library": "Transistor",
+          "library_urn": "urn:adsk.eagle:library:16378713",
+          "package": "TO92",
+          "package3d_urn": "urn:adsk.wipprod:fs.file:vf.oI7jP7zWQdWuDi8O1pewdA?version=9",
+          "value": "NPN_TO92-EBC",
+          "base_value": "NPN_TO92-EBC",
+          "x": "29.21",
+          "y": "15.24",
+          "smashed": "yes"
+        },
+        {
+          "name": "R1",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "RESAD1176W63L850D250B",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "value": "1k",
+          "base_value": "1k",
+          "x": "5.071",
+          "y": "36.509",
+          "smashed": "yes",
+          "rot": "R90"
+        },
+        {
+          "name": "R2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "RESAD1176W63L850D250B",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "value": "47k",
+          "base_value": "47k",
+          "x": "11.4476",
+          "y": "36.509",
+          "smashed": "yes",
+          "rot": "R90"
+        },
+        {
+          "name": "R3",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "RESAD1176W63L850D250B",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "value": "47k",
+          "base_value": "47k",
+          "x": "23.52",
+          "y": "36.509",
+          "smashed": "yes",
+          "rot": "R90"
+        },
+        {
+          "name": "R4",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "RESAD1176W63L850D250B",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "value": "1k",
+          "base_value": "1k",
+          "x": "33.02",
+          "y": "36.509",
+          "smashed": "yes",
+          "rot": "R90"
+        },
+        {
+          "name": "U$2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "package": "BATTERY-GENERIC",
+          "package3d_urn": "urn:adsk.eagle:package:32408255/4",
+          "value": "BATTERY-9VGENERIC",
+          "base_value": "BATTERY-9VGENERIC",
+          "x": "20.32",
+          "y": "6.35",
+          "smashed": "yes"
+        }
+      ],
+      "spice_models": [],
+      "via_count": 1,
+      "unrouted_wire_count": 0,
+      "design_rules": [
+        {
+          "name": "mdWireWire",
+          "value": "6mil"
+        },
+        {
+          "name": "mdWirePad",
+          "value": "6mil"
+        },
+        {
+          "name": "mdWireVia",
+          "value": "6mil"
+        },
+        {
+          "name": "mdPadPad",
+          "value": "6mil"
+        },
+        {
+          "name": "mdPadVia",
+          "value": "6mil"
+        },
+        {
+          "name": "mdViaVia",
+          "value": "6mil"
+        },
+        {
+          "name": "mdSmdPad",
+          "value": "6mil"
+        },
+        {
+          "name": "mdSmdVia",
+          "value": "6mil"
+        },
+        {
+          "name": "mdSmdSmd",
+          "value": "6mil"
+        },
+        {
+          "name": "mdCopperDimension",
+          "value": "40mil"
+        },
+        {
+          "name": "mdDrill",
+          "value": "6mil"
+        },
+        {
+          "name": "msWidth",
+          "value": "6mil"
+        },
+        {
+          "name": "msDrill",
+          "value": "0.35mm"
+        },
+        {
+          "name": "dpMaxLengthDifference",
+          "value": "10mm"
+        },
+        {
+          "name": "dpGapFactor",
+          "value": "2.5"
+        },
+        {
+          "name": "layerSetup",
+          "value": "(1*64)"
+        },
+        {
+          "name": "mtCopper",
+          "value": "0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"
+        },
+        {
+          "name": "mtIsolate",
+          "value": "1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"
+        },
+        {
+          "name": "mdViaViaSameLayer",
+          "value": "6mil"
+        },
+        {
+          "name": "mnLayersViaInSmd",
+          "value": "2"
+        },
+        {
+          "name": "mdSmdStop",
+          "value": "0mil"
+        },
+        {
+          "name": "msMicroVia",
+          "value": "9.99mm"
+        },
+        {
+          "name": "msBlindViaRatio",
+          "value": "0.5"
+        },
+        {
+          "name": "rvPadTop",
+          "value": "0.25"
+        },
+        {
+          "name": "rvPadInner",
+          "value": "0.25"
+        },
+        {
+          "name": "rvPadBottom",
+          "value": "0.25"
+        },
+        {
+          "name": "rvViaOuter",
+          "value": "0.25"
+        },
+        {
+          "name": "rvViaInner",
+          "value": "0.25"
+        },
+        {
+          "name": "rvMicroViaOuter",
+          "value": "0.25"
+        },
+        {
+          "name": "rvMicroViaInner",
+          "value": "0.25"
+        },
+        {
+          "name": "rlMinPadTop",
+          "value": "10mil"
+        },
+        {
+          "name": "rlMaxPadTop",
+          "value": "20mil"
+        },
+        {
+          "name": "rlMinPadInner",
+          "value": "10mil"
+        },
+        {
+          "name": "rlMaxPadInner",
+          "value": "20mil"
+        },
+        {
+          "name": "rlMinPadBottom",
+          "value": "10mil"
+        },
+        {
+          "name": "rlMaxPadBottom",
+          "value": "20mil"
+        },
+        {
+          "name": "rlMinViaOuter",
+          "value": "8mil"
+        },
+        {
+          "name": "rlMaxViaOuter",
+          "value": "20mil"
+        },
+        {
+          "name": "rlMinViaInner",
+          "value": "8mil"
+        },
+        {
+          "name": "rlMaxViaInner",
+          "value": "20mil"
+        },
+        {
+          "name": "rlMinMicroViaOuter",
+          "value": "4mil"
+        },
+        {
+          "name": "rlMaxMicroViaOuter",
+          "value": "20mil"
+        },
+        {
+          "name": "rlMinMicroViaInner",
+          "value": "4mil"
+        },
+        {
+          "name": "rlMaxMicroViaInner",
+          "value": "20mil"
+        },
+        {
+          "name": "psTop",
+          "value": "-1"
+        },
+        {
+          "name": "psBottom",
+          "value": "-1"
+        },
+        {
+          "name": "psFirst",
+          "value": "-1"
+        },
+        {
+          "name": "psElongationLong",
+          "value": "100"
+        },
+        {
+          "name": "psElongationOffset",
+          "value": "100"
+        },
+        {
+          "name": "mvStopFrame",
+          "value": "1"
+        },
+        {
+          "name": "mvCreamFrame",
+          "value": "0"
+        },
+        {
+          "name": "mlMinStopFrame",
+          "value": "4mil"
+        },
+        {
+          "name": "mlMaxStopFrame",
+          "value": "4mil"
+        },
+        {
+          "name": "mlMinCreamFrame",
+          "value": "0mil"
+        },
+        {
+          "name": "mlMaxCreamFrame",
+          "value": "0mil"
+        },
+        {
+          "name": "mlViaStopLimit",
+          "value": "9999mil"
+        },
+        {
+          "name": "srRoundness",
+          "value": "0"
+        },
+        {
+          "name": "srMinRoundness",
+          "value": "0mil"
+        },
+        {
+          "name": "srMaxRoundness",
+          "value": "0mil"
+        },
+        {
+          "name": "slThermalIsolate",
+          "value": "10mil"
+        },
+        {
+          "name": "slThermalsForVias",
+          "value": "0"
+        },
+        {
+          "name": "checkAngle",
+          "value": "0"
+        },
+        {
+          "name": "checkRestrict",
+          "value": "1"
+        },
+        {
+          "name": "checkStop",
+          "value": "0"
+        },
+        {
+          "name": "checkValues",
+          "value": "0"
+        },
+        {
+          "name": "checkNames",
+          "value": "1"
+        },
+        {
+          "name": "checkWireStubs",
+          "value": "1"
+        },
+        {
+          "name": "checkPolygonWidth",
+          "value": "0"
+        },
+        {
+          "name": "useDiameter",
+          "value": "13"
+        },
+        {
+          "name": "removeAnnularRing",
+          "value": "0"
+        },
+        {
+          "name": "flattenRefDes",
+          "value": "0"
+        },
+        {
+          "name": "maxErrors",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "file": "5CCE2EMP_Astable_Multivibrator_Schematic.fsch",
+      "bytes": 22530,
+      "sha256": "eff14a511b2539194b2fbe5018ad6b2f43292099185882107faf91bfce80b8c6",
+      "embedded_xml_version": "9.7.0",
+      "libraries": [
+        {
+          "name": "Tinkercad",
+          "urn": "urn:adsk.eagle:library:30890021"
+        },
+        {
+          "name": "Transistor",
+          "urn": "urn:adsk.eagle:library:16378713"
+        },
+        {
+          "name": "Ngspice-Simulation",
+          "urn": "urn:adsk.eagle:library:42976480"
+        }
+      ],
+      "parts": [
+        {
+          "name": "C1",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "CAPACITOR",
+          "device": "RADIAL-12.5MM-DIA",
+          "package3d_urn": "urn:adsk.eagle:package:16290858/5",
+          "technology": "_",
+          "value": "5.1uF"
+        },
+        {
+          "name": "C2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "CAPACITOR",
+          "device": "RADIAL-12.5MM-DIA",
+          "package3d_urn": "urn:adsk.eagle:package:16290858/5",
+          "technology": "_",
+          "value": "5.1uF"
+        },
+        {
+          "name": "R1",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "RESISTOR",
+          "device": "_AXIAL-11.7MM-PITCH",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "technology": "_",
+          "value": "1k"
+        },
+        {
+          "name": "R2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "RESISTOR",
+          "device": "_AXIAL-11.7MM-PITCH",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "technology": "_",
+          "value": "47k"
+        },
+        {
+          "name": "R3",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "RESISTOR",
+          "device": "_AXIAL-11.7MM-PITCH",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "technology": "_",
+          "value": "47k"
+        },
+        {
+          "name": "R4",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "RESISTOR",
+          "device": "_AXIAL-11.7MM-PITCH",
+          "package3d_urn": "urn:adsk.eagle:package:16378560/5",
+          "technology": "_",
+          "value": "1k"
+        },
+        {
+          "name": "Q1",
+          "library": "Transistor",
+          "library_urn": "urn:adsk.eagle:library:16378713",
+          "deviceset": "NPN",
+          "device": "TO92-EBC",
+          "package3d_urn": "urn:adsk.wipprod:fs.file:vf.oI7jP7zWQdWuDi8O1pewdA?version=9",
+          "technology": "_"
+        },
+        {
+          "name": "Q2",
+          "library": "Transistor",
+          "library_urn": "urn:adsk.eagle:library:16378713",
+          "deviceset": "NPN",
+          "device": "TO92-EBC",
+          "package3d_urn": "urn:adsk.wipprod:fs.file:vf.oI7jP7zWQdWuDi8O1pewdA?version=9",
+          "technology": "_"
+        },
+        {
+          "name": "X_2",
+          "library": "Ngspice-Simulation",
+          "library_urn": "urn:adsk.eagle:library:42976480",
+          "deviceset": "GND",
+          "device": ""
+        },
+        {
+          "name": "X_3",
+          "library": "Ngspice-Simulation",
+          "library_urn": "urn:adsk.eagle:library:42976480",
+          "deviceset": "GND",
+          "device": ""
+        },
+        {
+          "name": "U$2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "BATTERY-9V",
+          "device": "GENERIC",
+          "package3d_urn": "urn:adsk.eagle:package:32408255/4",
+          "value": "BATTERY-9VGENERIC"
+        },
+        {
+          "name": "D1",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "LED_RADIAL",
+          "device": "RED",
+          "package3d_urn": "urn:adsk.eagle:package:16378508/2",
+          "technology": "_",
+          "value": "LED_RED"
+        },
+        {
+          "name": "D2",
+          "library": "Tinkercad",
+          "library_urn": "urn:adsk.eagle:library:30890021",
+          "deviceset": "LED_RADIAL",
+          "device": "RED",
+          "package3d_urn": "urn:adsk.eagle:package:16378508/2",
+          "technology": "_",
+          "value": "LED_RED"
+        }
+      ],
+      "elements": [],
+      "spice_models": [
+        {
+          "name": "QNPN",
+          "definition": "**********************\n* Autodesk EAGLE - Spice Model File\n* Date: 9/17/17\n* basic npn intrinsic model\n**********************\n.MODEL QNPN NPN"
+        }
+      ],
+      "via_count": 0,
+      "unrouted_wire_count": 0,
+      "design_rules": []
+    }
+  ]
+}
