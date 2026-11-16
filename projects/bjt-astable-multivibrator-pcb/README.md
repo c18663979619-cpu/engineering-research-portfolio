@@ -17,7 +17,8 @@ A course design project documenting the analysis, transient SPICE simulation, an
 | Simulated frequency | Approximately 2.91 Hz |
 | PCB | Two copper layers; approximately 41.9 × 44.1 mm |
 | Routing evidence | 1 via; 0 airwires |
-| Reported checks | ERC and DRC: 0 errors and 0 warnings |
+| Checks in submitted report | ERC and DRC: 0 errors and 0 warnings |
+| Later Fusion PCB check | 0 errors; 12 warnings, including solder-mask warnings after a design-rule update |
 
 The simulated frequency is within the target range. The two collector outputs switch in opposite phases, driving the two red LEDs alternately in the PCB design.
 
@@ -41,13 +42,19 @@ The report estimates a first-order frequency of 3.02 Hz using 47 kΩ and 5.1 µF
 
 ![Two-layer PCB layout](docs/figures/pcb-layout.png)
 
-![DRC results](docs/figures/drc-result.png)
+![DRC results from the submitted report](docs/figures/drc-result.png)
 
-The reported board dimensions are 41.9 × 44.1 mm, within the 50 × 50 mm limit. The board has one via and no unrouted airwires. The report records zero ERC and DRC errors and warnings.
+The reported board dimensions are 41.9 × 44.1 mm, within the 50 × 50 mm limit. The board has one via and no unrouted airwires. The submitted report records zero ERC and DRC errors and warnings. A later Fusion screenshot shows the PCB check at zero errors and 12 warnings, with solder-mask warnings visible after an updated design-rule notice. These later warnings have not yet been reviewed or resolved, so the submitted report's earlier result is not presented as the current DRC state.
 
 ## Bill of materials
 
-See [BOM.csv](BOM.csv) for component values and package information.
+See [`BOM.csv`](BOM.csv) for component values and package information.
+
+## Native design files and reproduction
+
+The editable Autodesk Fusion Electronics exports are included in [`source/`](source/): the schematic (`.fsch`) and PCB (`.fbrd`). See [`source/README.md`](source/README.md) for how to use them.
+
+These source documents make the circuit and board layout inspectable, but they do not by themselves guarantee a full simulation rerun. The complete SPICE model configuration and exact Fusion version/settings are not yet documented.
 
 ## Reproducing the reported simulation
 
@@ -59,7 +66,7 @@ The submitted report records these Fusion Electronics transient-analysis setting
 - Start time: 1 s; end time: 2 s
 - Maximum time step: 1 ms
 
-The report does not include the editable Fusion design file, full simulator model definitions, or the exact Fusion version. Therefore, the figures and numeric results here document the submitted work, but this repository is not yet a complete rerun package. Add the native schematic/board source and any custom model files before describing the project as fully reproducible.
+The submitted report does not include full simulator model definitions or the exact Fusion version. The native schematic and board are now included, but any custom SPICE model files, directives, and exact application version/settings still need to be identified before this can be described as a complete simulation rerun package.
 
 ## Design limitations and next steps
 
@@ -73,6 +80,7 @@ Completed as an individual design project for module 5CCE2EMP. This repository p
 
 ## Repository contents
 
-- [BOM.csv](BOM.csv) — bill of materials
-- [docs/figures/](docs/figures/) — schematic, waveform, PCB layout, DRC, and 3D-view evidence
-- [docs/reproducibility.md](docs/reproducibility.md) — source files needed for a complete rerun package
+- `BOM.csv` — bill of materials
+- `source/` — editable Fusion Electronics schematic and board exports
+- `docs/figures/` — schematic, waveform, PCB layout, DRC, and 3D-view evidence
+- `docs/reproducibility.md` — source files needed for a complete rerun package
