@@ -11,9 +11,6 @@ from .io import write_json
 
 
 def live(model, output, seconds=10.0, sample_rate=48000, device=None, serial_port=None, enable_actuator=False):
-    import sounddevice as sd
-    import serial
-
     if seconds <= 0 or sample_rate < 9600:
         raise ValueError("Positive duration and microphone sample rate >= 9600 required")
     if enable_actuator and (not serial_port or model["status"] == "demo_unvalidated"):
@@ -22,6 +19,10 @@ def live(model, output, seconds=10.0, sample_rate=48000, device=None, serial_por
         raise ValueError("Serial output requires explicit --enable-actuator")
     if output.exists():
         raise FileExistsError(output)
+    # Optional audio import may initialize PortAudio; validate all guards first.
+    import sounddevice as sd
+    import serial
+
     config = FeatureConfig(**model["feature_config"])
     blocksize = round(sample_rate * config.window_seconds)
     if abs(blocksize / sample_rate - config.window_seconds) > 1e-8:

@@ -186,7 +186,9 @@ def test_segment_cli_bounds_and_no_overwrite(tmp_path):
     assert error.value.code == 2
 
 
-def test_live_demo_cannot_actuate_before_opening_devices(tmp_path):
+def test_live_demo_cannot_actuate_before_opening_devices(tmp_path, monkeypatch):
+    import sys
+    monkeypatch.setitem(sys.modules, "sounddevice", None)
     from scarecrow.live import live
     with pytest.raises(ValueError, match="demo models cannot actuate"):
         live({"status": "demo_unvalidated"}, tmp_path / "events.json", serial_port="fake", enable_actuator=True)
