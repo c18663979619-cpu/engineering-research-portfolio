@@ -1,0 +1,19 @@
+{
+  "manifest_clips": 2,
+  "feature_rows": 10,
+  "windows_by_label": {
+    "bird": 5,
+    "non_bird": 5
+  },
+  "independent_groups_by_label": {
+    "non_bird": 1,
+    "bird": 1
+  },
+  "skipped": [],
+  "license_unresolved_clips": [
+    "bird_001_annotated",
+    "non_bird_001_annotated"
+  ],
+  "label_review": "Inherited from local annotations or the named dataset; not independently listened to by the agent. Clip-level labels may be weak at window level.",
+  "grouping_limit": "Exact copies and declared provenance merged; hidden cropped/transcoded relatives require manual review."
+}

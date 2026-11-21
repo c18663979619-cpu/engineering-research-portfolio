@@ -1,0 +1,21 @@
+{
+  "status": "insufficient_data",
+  "reason": "Need >=3 independent source groups per class; found {'non_bird': 1, 'bird': 1}. Window count does not create independence.",
+  "seed": 42,
+  "baseline_parameters": {
+    "min_hz": 2000.0,
+    "max_hz": 4500.0,
+    "rms_floor": 0.005
+  },
+  "baseline_origin": "illustrative fixed values, not tuned",
+  "positive_class": "bird",
+  "evaluation_unit": "complete 0.25 s window; inherits clip labels",
+  "split_strategy": "source-group shuffle, seed 42",
+  "metrics": {
+    "fft_baseline": null,
+    "random_forest": null
+  },
+  "limitations": "Exploratory only. Correlated windows are not independent trials; no field or hardware validation.",
+  "demo_model": "Fitted on all available clips solely to exercise inference. No accuracy reported.",
+  "model_file": "model_demo.joblib"
+}

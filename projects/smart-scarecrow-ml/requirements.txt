@@ -1,0 +1,9 @@
+# Python 3.12; exact tested Mac environment is in requirements-lock-macos.txt.
+numpy>=2.0,<3
+scipy>=1.13,<2
+scikit-learn>=1.5,<2
+soundfile>=0.12,<1
+matplotlib>=3.9,<4
+joblib>=1.4,<2
+pyserial>=3.5,<4
+sounddevice>=0.5,<1

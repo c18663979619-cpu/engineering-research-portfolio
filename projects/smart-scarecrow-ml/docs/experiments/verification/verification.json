@@ -1,0 +1,31 @@
+{
+  "python_tests_passed": 19,
+  "pip_check": "passed",
+  "original_project_files_unchanged": 29,
+  "original_arduino_sketches_unchanged": 4,
+  "source_split_reproduction": "exact metrics and source groups match",
+  "real_hardware_capture": {
+    "frames": 30,
+    "samples": 7680,
+    "executed_by": "user terminal using the supplied local capture tool",
+    "new_firmware_uploaded": false
+  },
+  "firmware_compile": {
+    "uno_audio_capture": {
+      "flash_bytes": 2422,
+      "static_sram_bytes": 1222
+    },
+    "uno_controller": {
+      "flash_bytes": 2392,
+      "static_sram_bytes": 247
+    },
+    "scarecrow_host_ml": {
+      "flash_bytes": 7634,
+      "static_sram_bytes": 356
+    },
+    "legacy_master_fixed": {
+      "flash_bytes": 12370,
+      "static_sram_bytes": 939
+    }
+  }
+}

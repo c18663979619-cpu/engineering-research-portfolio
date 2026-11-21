@@ -1,0 +1,29 @@
+{
+  "manifest_clips": 160,
+  "feature_rows": 3160,
+  "windows_by_label": {
+    "bird": 1600,
+    "non_bird": 1560
+  },
+  "independent_groups_by_label": {
+    "non_bird": 73,
+    "bird": 59
+  },
+  "skipped": [
+    {
+      "clip_id": "esc50_1-46744-A-36",
+      "reasons": [
+        "more_than_1_percent_clipped"
+      ]
+    },
+    {
+      "clip_id": "esc50_3-130330-A-22",
+      "reasons": [
+        "more_than_1_percent_clipped"
+      ]
+    }
+  ],
+  "license_unresolved_clips": [],
+  "label_review": "Inherited from local annotations or the named dataset; not independently listened to by the agent. Clip-level labels may be weak at window level.",
+  "grouping_limit": "Exact copies and declared provenance merged; hidden cropped/transcoded relatives require manual review."
+}

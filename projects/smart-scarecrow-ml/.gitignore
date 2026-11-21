@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.DS_Store
+.env
+.env.*
+!.env.example
+backups/
+firmware/originals/inventory.json
+work/
+build/
+dist/
+# Audio is private by default; never git add -f without checking its exact license.
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.ogg
+data/raw/
+data/processed/
+data/captures/
+*.joblib
+*.pkl
+# Local runs may contain private source paths/metadata; curate docs/figures instead.
+results/runs/
+results/predictions/
+*.hex
+*.elf
+*.eep

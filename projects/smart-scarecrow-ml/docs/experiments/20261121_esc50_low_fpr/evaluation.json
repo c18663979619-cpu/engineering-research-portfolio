@@ -1,0 +1,407 @@
+{
+  "status": "exploratory_holdout",
+  "reason": null,
+  "seed": 42,
+  "baseline_parameters": {
+    "min_hz": 2000.0,
+    "max_hz": 4500.0,
+    "rms_floor": 0.005
+  },
+  "baseline_origin": "illustrative fixed values, not tuned",
+  "positive_class": "bird",
+  "evaluation_unit": "complete 0.25 s window; inherits clip labels",
+  "split_strategy": "official folds 1-3 train, 4 threshold validation, 5 test; no refit",
+  "metrics": {
+    "fft_baseline": {
+      "accuracy": 0.5578125,
+      "precision_bird": 0.6947368421052632,
+      "recall_bird": 0.20625,
+      "f1_bird": 0.3180722891566265,
+      "confusion_matrix": [
+        [
+          291,
+          29
+        ],
+        [
+          254,
+          66
+        ]
+      ],
+      "class_order": [
+        "non_bird",
+        "bird"
+      ],
+      "per_class": {
+        "non_bird": {
+          "precision": 0.5339449541284403,
+          "recall": 0.909375,
+          "f1-score": 0.6728323699421965,
+          "support": 320.0
+        },
+        "bird": {
+          "precision": 0.6947368421052632,
+          "recall": 0.20625,
+          "f1-score": 0.3180722891566265,
+          "support": 320.0
+        },
+        "accuracy": 0.5578125,
+        "macro avg": {
+          "precision": 0.6143408981168518,
+          "recall": 0.5578125,
+          "f1-score": 0.49545232954941154,
+          "support": 640.0
+        },
+        "weighted avg": {
+          "precision": 0.6143408981168518,
+          "recall": 0.5578125,
+          "f1-score": 0.49545232954941154,
+          "support": 640.0
+        }
+      },
+      "zero_division_policy": "undefined precision/recall are 0, inspect support"
+    },
+    "random_forest": {
+      "accuracy": 0.7,
+      "precision_bird": 0.7990654205607477,
+      "recall_bird": 0.534375,
+      "f1_bird": 0.6404494382022472,
+      "confusion_matrix": [
+        [
+          277,
+          43
+        ],
+        [
+          149,
+          171
+        ]
+      ],
+      "class_order": [
+        "non_bird",
+        "bird"
+      ],
+      "per_class": {
+        "non_bird": {
+          "precision": 0.6502347417840375,
+          "recall": 0.865625,
+          "f1-score": 0.7426273458445041,
+          "support": 320.0
+        },
+        "bird": {
+          "precision": 0.7990654205607477,
+          "recall": 0.534375,
+          "f1-score": 0.6404494382022472,
+          "support": 320.0
+        },
+        "accuracy": 0.7,
+        "macro avg": {
+          "precision": 0.7246500811723926,
+          "recall": 0.7,
+          "f1-score": 0.6915383920233756,
+          "support": 640.0
+        },
+        "weighted avg": {
+          "precision": 0.7246500811723926,
+          "recall": 0.7,
+          "f1-score": 0.6915383920233756,
+          "support": 640.0
+        }
+      },
+      "zero_division_policy": "undefined precision/recall are 0, inspect support"
+    }
+  },
+  "limitations": "Exploratory only. Correlated windows are not independent trials; no field or hardware validation.",
+  "threshold_selection": {
+    "threshold": 0.7517421225098331,
+    "max_validation_fpr": 0.05,
+    "method": "maximize validation recall under FPR <= 0.05, then minimize FPR; no test optimization",
+    "validation_windows": 640,
+    "validation_groups": [
+      "FREESOUND_136381",
+      "FREESOUND_138344",
+      "FREESOUND_144083",
+      "FREESOUND_145081",
+      "FREESOUND_146200",
+      "FREESOUND_156227",
+      "FREESOUND_159426",
+      "FREESOUND_159609",
+      "FREESOUND_161127",
+      "FREESOUND_163606",
+      "FREESOUND_163697",
+      "FREESOUND_171652",
+      "FREESOUND_172736",
+      "FREESOUND_173865",
+      "FREESOUND_175000",
+      "FREESOUND_177250",
+      "FREESOUND_182795",
+      "FREESOUND_186935",
+      "FREESOUND_187769",
+      "FREESOUND_188287",
+      "FREESOUND_189832",
+      "FREESOUND_189838",
+      "FREESOUND_195805",
+      "FREESOUND_198962",
+      "FREESOUND_216211",
+      "FREESOUND_223125",
+      "FREESOUND_223127"
+    ],
+    "validation_metrics": {
+      "accuracy": 0.821875,
+      "precision_bird": 0.9401709401709402,
+      "recall_bird": 0.6875,
+      "f1_bird": 0.7942238267148014,
+      "confusion_matrix": [
+        [
+          306,
+          14
+        ],
+        [
+          100,
+          220
+        ]
+      ],
+      "class_order": [
+        "non_bird",
+        "bird"
+      ],
+      "per_class": {
+        "non_bird": {
+          "precision": 0.7536945812807881,
+          "recall": 0.95625,
+          "f1-score": 0.8429752066115702,
+          "support": 320.0
+        },
+        "bird": {
+          "precision": 0.9401709401709402,
+          "recall": 0.6875,
+          "f1-score": 0.7942238267148014,
+          "support": 320.0
+        },
+        "accuracy": 0.821875,
+        "macro avg": {
+          "precision": 0.8469327607258641,
+          "recall": 0.821875,
+          "f1-score": 0.8185995166631859,
+          "support": 640.0
+        },
+        "weighted avg": {
+          "precision": 0.8469327607258641,
+          "recall": 0.821875,
+          "f1-score": 0.8185995166631859,
+          "support": 640.0
+        }
+      },
+      "zero_division_policy": "undefined precision/recall are 0, inspect support"
+    }
+  },
+  "train_windows": 1880,
+  "test_windows": 640,
+  "train_groups": [
+    "FREESOUND_100038",
+    "FREESOUND_103298",
+    "FREESOUND_104089",
+    "FREESOUND_104952",
+    "FREESOUND_106015",
+    "FREESOUND_106487",
+    "FREESOUND_108760",
+    "FREESOUND_108761",
+    "FREESOUND_108763",
+    "FREESOUND_108766",
+    "FREESOUND_108767",
+    "FREESOUND_109231",
+    "FREESOUND_112397",
+    "FREESOUND_117293",
+    "FREESOUND_117504",
+    "FREESOUND_117625",
+    "FREESOUND_119455",
+    "FREESOUND_121348",
+    "FREESOUND_122616",
+    "FREESOUND_124925",
+    "FREESOUND_127890",
+    "FREESOUND_129264",
+    "FREESOUND_134699",
+    "FREESOUND_137296",
+    "FREESOUND_140774",
+    "FREESOUND_141240",
+    "FREESOUND_141681",
+    "FREESOUND_142006",
+    "FREESOUND_150979",
+    "FREESOUND_155577",
+    "FREESOUND_155578",
+    "FREESOUND_155579",
+    "FREESOUND_155583",
+    "FREESOUND_155584",
+    "FREESOUND_155766",
+    "FREESOUND_155858",
+    "FREESOUND_156581",
+    "FREESOUND_159346",
+    "FREESOUND_159347",
+    "FREESOUND_163607",
+    "FREESOUND_172649",
+    "FREESOUND_17367",
+    "FREESOUND_177082",
+    "FREESOUND_181132",
+    "FREESOUND_188822",
+    "FREESOUND_205966",
+    "FREESOUND_209472",
+    "FREESOUND_209475",
+    "FREESOUND_21189",
+    "FREESOUND_22882",
+    "FREESOUND_249913",
+    "FREESOUND_34495",
+    "FREESOUND_34497",
+    "FREESOUND_37806",
+    "FREESOUND_38559",
+    "FREESOUND_38560",
+    "FREESOUND_39835",
+    "FREESOUND_46040",
+    "FREESOUND_51037",
+    "FREESOUND_54918",
+    "FREESOUND_56233",
+    "FREESOUND_56234",
+    "FREESOUND_57318",
+    "FREESOUND_60460",
+    "FREESOUND_60900",
+    "FREESOUND_61261",
+    "FREESOUND_68630",
+    "FREESOUND_72547",
+    "FREESOUND_73260",
+    "FREESOUND_75162",
+    "FREESOUND_76408",
+    "FREESOUND_80841",
+    "FREESOUND_80844",
+    "FREESOUND_94036",
+    "FREESOUND_94343",
+    "FREESOUND_96033",
+    "FREESOUND_96950"
+  ],
+  "test_groups": [
+    "FREESOUND_177957",
+    "FREESOUND_179496",
+    "FREESOUND_188655",
+    "FREESOUND_191131",
+    "FREESOUND_195710",
+    "FREESOUND_209989",
+    "FREESOUND_209992",
+    "FREESOUND_210540",
+    "FREESOUND_212054",
+    "FREESOUND_213836",
+    "FREESOUND_214869",
+    "FREESOUND_216213",
+    "FREESOUND_217186",
+    "FREESOUND_222041",
+    "FREESOUND_242490",
+    "FREESOUND_242491",
+    "FREESOUND_242711",
+    "FREESOUND_243448",
+    "FREESOUND_243449",
+    "FREESOUND_243450",
+    "FREESOUND_243459",
+    "FREESOUND_243773",
+    "FREESOUND_244310",
+    "FREESOUND_254160",
+    "FREESOUND_257839",
+    "FREESOUND_261325",
+    "FREESOUND_263491",
+    "FREESOUND_263902"
+  ],
+  "clip_metrics": {
+    "fft_baseline": {
+      "accuracy": 0.5625,
+      "precision_bird": 0.75,
+      "recall_bird": 0.1875,
+      "f1_bird": 0.3,
+      "confusion_matrix": [
+        [
+          15,
+          1
+        ],
+        [
+          13,
+          3
+        ]
+      ],
+      "class_order": [
+        "non_bird",
+        "bird"
+      ],
+      "per_class": {
+        "non_bird": {
+          "precision": 0.5357142857142857,
+          "recall": 0.9375,
+          "f1-score": 0.6818181818181818,
+          "support": 16.0
+        },
+        "bird": {
+          "precision": 0.75,
+          "recall": 0.1875,
+          "f1-score": 0.3,
+          "support": 16.0
+        },
+        "accuracy": 0.5625,
+        "macro avg": {
+          "precision": 0.6428571428571428,
+          "recall": 0.5625,
+          "f1-score": 0.49090909090909085,
+          "support": 32.0
+        },
+        "weighted avg": {
+          "precision": 0.6428571428571428,
+          "recall": 0.5625,
+          "f1-score": 0.49090909090909085,
+          "support": 32.0
+        }
+      },
+      "zero_division_policy": "undefined precision/recall are 0, inspect support"
+    },
+    "random_forest": {
+      "accuracy": 0.6875,
+      "precision_bird": 0.8,
+      "recall_bird": 0.5,
+      "f1_bird": 0.6153846153846154,
+      "confusion_matrix": [
+        [
+          14,
+          2
+        ],
+        [
+          8,
+          8
+        ]
+      ],
+      "class_order": [
+        "non_bird",
+        "bird"
+      ],
+      "per_class": {
+        "non_bird": {
+          "precision": 0.6363636363636364,
+          "recall": 0.875,
+          "f1-score": 0.7368421052631579,
+          "support": 16.0
+        },
+        "bird": {
+          "precision": 0.8,
+          "recall": 0.5,
+          "f1-score": 0.6153846153846154,
+          "support": 16.0
+        },
+        "accuracy": 0.6875,
+        "macro avg": {
+          "precision": 0.7181818181818183,
+          "recall": 0.6875,
+          "f1-score": 0.6761133603238867,
+          "support": 32.0
+        },
+        "weighted avg": {
+          "precision": 0.7181818181818183,
+          "recall": 0.6875,
+          "f1-score": 0.6761133603238867,
+          "support": 32.0
+        }
+      },
+      "zero_division_policy": "undefined precision/recall are 0, inspect support"
+    }
+  },
+  "clip_aggregation": "RF mean uncalibrated score >=0.7517421225098331; FFT majority vote >=0.5; complete windows only. Threshold selected on windows, not calibrated for clip metrics.",
+  "model_file": "model_holdout.joblib"
+}

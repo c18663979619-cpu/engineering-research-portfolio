@@ -9,6 +9,7 @@ Projects exploring **electronics and computer engineering** through circuit anal
 | [Behavioral SRAM stability](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo/tree/70023883ea8ac17d4296a5396efb0eae3d4ac80e) | How do threshold mismatch and supply assumptions affect static stability? | Python/NumPy modeling, Monte Carlo analysis, numerical verification, uncertainty | Executed notebook, 10,000 samples, four figures, data and tests |
 | [BJT oscillator and PCB](projects/bjt-astable-multivibrator-pcb/) | How can an approximately 3 Hz oscillator be analyzed and translated into a compact PCB? | Circuit calculations, SPICE interpretation, schematic capture, placement and routing | Reported waveforms, native Fusion exports, BOM, check records |
 | [ML surrogate for behavioral SRAM stability — In progress](projects/ml-sram-surrogate/) | Can regression approximate numerical stability calculations, and where does it fail? | Initial dataset preparation and NumPy regression baselines; nonlinear methods planned | Reproducible split, initial error table, prediction plot |
+| [Smart Scarecrow ML — Research prototype](projects/smart-scarecrow-ml/) | Can audio classification distinguish birds from environmental sounds on a resource-limited scarecrow? | Audio DSP, source-disjoint ML evaluation, AVR memory optimization and serial acquisition | 160 sourced audio clips, 19 passing tests, four compiled firmware variants and a real 30-frame capture |
 
 ## 01 · Computational modeling: behavioral SRAM stability
 
@@ -42,6 +43,18 @@ Projects exploring **electronics and computer engineering** through circuit anal
 
 [View the initial experiment and roadmap →](projects/ml-sram-surrogate/)
 
+## 04 · Embedded audio classification: Smart Scarecrow ML
+
+**Method.** Extract 37 acoustic features and compare a fixed FFT rule with a 200-tree Random Forest. Keep original recordings disjoint across training and testing, and investigate a validation-only decision threshold. Integrate with the Kona328 / ATmega328P sensor and actuator pin map.
+
+**Evidence.** On 640 held-out windows from 28 recording sources, RF achieves **83.75% accuracy** and **0.8475 Bird F1**, versus **55.78%** and **0.3181** for the FFT baseline. A real Kona328 capture contains **30 complete frames / 7,680 ADC samples**. The original controller's static SRAM falls from **1,767 B to 939 B** in a separate repaired version.
+
+![Smart Scarecrow source-disjoint evaluation](projects/smart-scarecrow-ml/docs/figures/benchmark/model_performance.png)
+
+*The RF false-positive rate is 22.81%, above the FFT baseline's 9.06%. Field false-alarm reduction has not been demonstrated. The current model runs on a host; the UNO handles acquisition/control. Source audio and model binaries are not published.*
+
+[Explore the project, code, report and reproducibility guide →](projects/smart-scarecrow-ml/)
+
 ## Research approach
 
 - Start with a question and a measurable criterion.
@@ -51,3 +64,4 @@ Projects exploring **electronics and computer engineering** through circuit anal
 - Use discrepancies to identify the next useful experiment.
 
 **Current interests:** electronic circuits, computer engineering, reliability modeling, and reproducible engineering analysis.
+

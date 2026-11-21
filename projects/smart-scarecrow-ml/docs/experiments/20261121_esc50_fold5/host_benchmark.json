@@ -1,0 +1,9 @@
+{
+  "platform": "macOS-14.3-arm64-arm-64bit",
+  "iterations": 100,
+  "scope": "feature extraction plus 200-tree RF prediction; excludes device I/O and file decoding",
+  "median_ms": 3.9260835001186933,
+  "p95_ms": 4.166737201012438,
+  "model_bytes": 2400205,
+  "tree_nodes": 28476
+}
