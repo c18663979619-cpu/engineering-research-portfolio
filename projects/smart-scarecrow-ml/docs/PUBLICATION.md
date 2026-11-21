@@ -4,7 +4,7 @@ This public case study was prepared for the owner’s engineering-research-portf
 
 The 29 pre-existing project files remain unchanged and have a full local backup. Four pre-existing Arduino sketches were copied from the owner's Arduino directory into `firmware/originals/`, with source paths and SHA-256 in its local inventory. No original Arduino file was edited.
 
-Before public publication, choose an appropriate license for owner-controlled code. This task does not assign a license to the user's original work. External libraries retain their own licenses; their source is not vendored here. ESC-50 audio and attribution retain the upstream data licenses. XC1002645 and the self-recorded voice file must not be presumed freely redistributable.
+No code license has been assigned to the owner-controlled code in this publication; publication alone does not grant an open-source license. The owner can select one separately. This task does not assign a license to the user's original work. External libraries retain their own licenses; their source is not vendored here. ESC-50 audio and attribution retain the upstream data licenses. XC1002645 and the self-recorded voice file must not be presumed freely redistributable.
 
 The `.gitignore` excludes audio formats, raw/processed audio folders, captures, `.venv`, backups, build products and local model/run files. Ignore rules do not remove files already tracked in an existing repository and do not prevent `git add -f`; review the staged file list before publishing. Curated experiment summaries and ESC-50-derived figures under `docs/` include source attribution in the dataset card. Full private experiment outputs should remain local.
 

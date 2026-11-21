@@ -1,10 +1,51 @@
-# Smart Scarecrow ML
+# Smart Scarecrow — Arduino Hardware & Machine Learning
 
-Reproducible Bird / Non-bird audio classification with a fixed FFT baseline, Random Forest, source-aware evaluation, and ATmega328P / Arduino UNO integration.
+**From a completed school hardware project to an experimental ML-enhanced acoustic detector.**
 
-**Status: working research prototype, not field validated.** The public-data model improves classification accuracy, but the current experiments do **not** demonstrate fewer false alarms than the FFT baseline. The original local recordings alone are insufficient for an independent evaluation.
+I developed the Arduino control program for a school Smart Scarecrow project: **five sensors, two servo-driven arms, an RGB LED and a buzzer**, integrated on an Orangepip Kona328 (ATmega328P / Arduino UNO compatible). This repository preserves that original work and extends its sound-detection channel with audio features and machine learning. The aim is to distinguish Bird from Non-bird sounds more reliably and reduce unwanted acoustic triggers.
 
-中文完整说明：[运行指南](docs/RUNNING_ZH.md) · [技术报告](docs/TECHNICAL_REPORT_ZH.md) · [硬件方案](docs/HARDWARE_ZH.md) · [数据说明](docs/DATASET_CARD.md)
+**Start with my original Arduino work:** [complete five-sensor master code](firmware/originals/5CCE2EMP_Control_SG90_HC-SR04/5CCE2EMP_Control_SG90_HC-SR04.ino) · [hardware engineering case study](docs/HARDWARE_CASE_STUDY.md) · [which firmware to use](firmware/README.md).
+
+| Project stage | Work and evidence | Status |
+|---|---|---|
+| School hardware project | My Arduino master integrates 2× HC-SR04, 2× PIR and 1× Waveshare sound sensor with servo, RGB and buzzer control | Completed school implementation, as reported by the author; original source preserved |
+| Engineering extension | Separate SRAM repair, serial acquisition, host-controlled firmware and real 30-frame ADC capture | Compiled / software-tested; capture analyzed; new actuator firmware not tested on the assembled system |
+| Machine-learning extension | FFT baseline, 37 acoustic features, Random Forest and recording-disjoint evaluation | Working research prototype; field false-alarm reduction not yet demonstrated |
+
+中文说明：[硬件设计案例](docs/HARDWARE_CASE_STUDY.md) · [固件选择](firmware/README.md) · [运行指南](docs/RUNNING_ZH.md) · [技术报告](docs/TECHNICAL_REPORT_ZH.md) · [硬件集成方案](docs/HARDWARE_ZH.md)
+
+## 1. Arduino and hardware foundation
+
+The original system combines distance, motion and sound sensing in a **STANDBY → ALARM → COOLDOWN** state machine. Any enabled sensor channel can initiate a 20-second alarm; a 3-second cooldown follows. The controller coordinates two arm servos, alternating RGB indications and the buzzer.
+
+| Hardware | Actual connection | Role in the original controller |
+|---|---|---|
+| HC-SR04 ×2 | TRIG/ECHO D2/D3 and D12/D13 | Detect objects within 2–50 cm, with echo timeouts |
+| PIR ×2 | D4 and A0 | Rising-edge motion detection, 150 ms confirmation and a 2 s settling window |
+| Waveshare Sound V2 | AOUT A1; DOUT D5 | A1 waveform sampling, 64-point FFT and a 1,800–4,500 Hz bird-band rule; DOUT is wired but not the FFT input |
+| Arm servos ×2 | Right D9; left D10 | Stepped arm movements between standby and alarm positions |
+| Common-cathode RGB LED | R D6; G D7; B D8 | Standby, alarm and cooldown indication |
+| Buzzer | D11 | Audible alarm coordinated with arm movement |
+
+```mermaid
+flowchart LR
+    U[Two ultrasonic sensors] --> C[Kona328 Arduino master]
+    P[Two PIR sensors] --> C
+    S[Waveshare A1 waveform] --> F[Original 64-point FFT rule]
+    F --> C
+    C --> A[Two servo arms]
+    C --> L[RGB status LED]
+    C --> Z[Buzzer]
+    M[ML extension on Mac] -. Serial acoustic trigger .-> C
+```
+
+The original code demonstrates pin/resource planning, ADC acquisition, FFT-based filtering, PIR re-arming, actuator coordination and serial diagnostics. Stepped servo commands are intended to soften movement; supply stability still requires electrical measurement. The original source is unchanged. A separate revision reduces static SRAM from **1,767 B to 939 B**, leaving more room for the stack on a 2 KB MCU.
+
+## 2. Extending the sound channel with machine learning
+
+The ML work builds on this hardware platform. A fixed frequency band can also admit non-bird sounds; the extension tests whether multiple acoustic features can provide better discrimination. The Random Forest and MFCC extraction run on a Mac, while the UNO retains embedded sensing and actuator control. The current host-control path uses the **host microphone**; the separate Waveshare capture path is for target-domain data collection. Simultaneous Waveshare streaming and full servo control has not been validated.
+
+**Experimental result:** public-data classification accuracy improves, but the current RF has a higher non-bird false-positive rate than the experimental FFT baseline. This is not yet proof of a more accurate deployed Waveshare sensor or fewer alarms in the complete scarecrow. The software FFT baseline is a reproducible comparison rule, not a replay of the original Arduino controller.
 
 ## What is implemented
 
@@ -17,7 +58,7 @@ Reproducible Bird / Non-bird audio classification with a fixed FFT baseline, Ran
 - Compiled UNO sketches for A1 acquisition, D7 LED testing and full-system host ML control; a separate SRAM repair of the original master.
 - Automatic figures, saved predictions, model cards, dependency lock, tests and CI configuration.
 
-## Architecture
+## ML experiment and host integration architecture
 
 ```mermaid
 flowchart LR
@@ -48,7 +89,7 @@ python -m pytest -q
 python -m scarecrow --help
 ```
 
-For a fresh checkout, create the environment first with `python3.12 -m venv .venv`. `requirements-lock-macos.txt` records the exact versions tested on this Mac. Linux microphone use also needs PortAudio; file inference does not need microphone access.
+`requirements-lock-macos.txt` records the exact versions tested on this Mac. Linux microphone use also needs PortAudio; file inference does not need microphone access.
 
 Reproduce the local annotated-data demonstration (audio stays private):
 
@@ -108,7 +149,7 @@ These are compiler measurements, not on-board timing tests. The user also ran th
 ```text
 scarecrow/             reusable audio, dataset, model, inference and serial modules
 scripts/               public-data download and local verification helpers
-firmware/              independent UNO acquisition and controller sketches
+firmware/              original five-sensor Arduino master and separate extensions
 tests/                 synthetic software fixtures, never used as experiment data
 data/manifest*.csv     labels, provenance, source groups, licenses and official folds
 docs/                  running guide, report, dataset card, figures and evidence
