@@ -1,17 +1,55 @@
-# Mohan Chen | Engineering Research & Design Portfolio
+# Mohan Chen | Machine Learning, Signal Processing & Electronic Engineering
 
-Projects exploring **electronics and computer engineering** through circuit analysis, numerical modeling, and hardware design. Each case study connects an engineering question with an explicit method, evidence, reproducible artifacts, and limitations.
+Engineering projects exploring **machine learning for sensor data, digital signal processing and embedded systems**, alongside circuit design and numerical modeling. My featured project, **Smart Scarecrow**, connects acoustic feature extraction and model evaluation with an Arduino sensing platform.
+
+**Tools and methods explored in this portfolio** include Python, NumPy, scikit-learn, FFT/STFT, MFCCs, Random Forest classification, regression baselines, Monte Carlo simulation and Arduino C++. Each project links its methods to reproducible artifacts, measured results and current limitations.
 
 ## Selected projects
 
 | Project | Engineering question | Work demonstrated | Evidence |
 |---|---|---|---|
+| [Smart Scarecrow — Audio machine learning & Arduino sensing](projects/smart-scarecrow-ml/) | How well can acoustic features distinguish bird sounds from environmental interference? | Python, NumPy, scikit-learn, FFT/STFT, MFCCs, Random Forest, evaluation by recording source and error analysis | 83.75% held-out accuracy, 0.8475 Bird F1, saved metrics, original Arduino code and real ADC capture |
 | [Behavioral SRAM stability](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo/tree/70023883ea8ac17d4296a5396efb0eae3d4ac80e) | How do threshold mismatch and supply assumptions affect static stability? | Python/NumPy modeling, Monte Carlo analysis, numerical verification, uncertainty | Executed notebook, 10,000 samples, four figures, data and tests |
 | [BJT oscillator and PCB](projects/bjt-astable-multivibrator-pcb/) | How can an approximately 3 Hz oscillator be analyzed and translated into a compact PCB? | Circuit calculations, SPICE interpretation, schematic capture, placement and routing | Reported waveforms, native Fusion exports, BOM, check records |
 | [ML surrogate for behavioral SRAM stability — In progress](projects/ml-sram-surrogate/) | Can regression approximate numerical stability calculations, and where does it fail? | Initial dataset preparation and NumPy regression baselines; nonlinear methods planned | Reproducible split, initial error table, prediction plot |
-| [Smart Scarecrow — Arduino hardware + ML](projects/smart-scarecrow-ml/) | How can a completed five-sensor scarecrow gain a more selective sound detector? | Arduino C++, sensor integration, dual-servo / RGB / buzzer control, state-machine design, audio DSP and ML | Original school-project master code, complete pin map, SRAM analysis, real ADC capture and source-disjoint ML results |
 
-## 01 · Computational modeling: behavioral SRAM stability
+## Smart Scarecrow — Audio machine learning & Arduino sensing
+
+An acoustic classification project connecting **Python machine learning, signal processing and embedded sensing**. Built on my school Smart Scarecrow controller, the ML extension investigates how to distinguish Bird from Non-bird sounds and how classification errors affect a physical alarm system.
+
+**ML workflow demonstrated**
+
+- **Audio preparation with Python and NumPy.** Audit audio provenance and quality, convert to mono, resample to 9.6 kHz and extract complete 0.25-second windows.
+- **Signal processing and feature engineering.** Extract **37 acoustic features** using FFT/STFT, RMS, zero-crossing rate, frequency-band energy, spectral centroid and bandwidth, plus the means and standard deviations of 13 MFCCs.
+- **Supervised learning with scikit-learn.** Train a **200-tree Random Forest** and compare it with a fixed FFT rule using the same preprocessing.
+- **Evaluation on unseen recording sources.** Train on ESC-50 folds 1–4 and test on fold 5, keeping windows from the same original recording together. A separate experiment uses fold 4 for threshold selection.
+- **Model assessment and error analysis.** Inspect precision, recall, F1, confusion matrices and errors by sound category, including false positives on cricket recordings and poor transfer to a local voice clip.
+
+**Held-out results**
+
+Custom ESC-50 Bird/Non-bird subset, evaluated on **640 windows from 32 clips and 28 original recording sources**. Windows from each source are correlated.
+
+| Window-level measure | Fixed FFT baseline | Random Forest |
+|---|---:|---:|
+| Accuracy | 55.78% | **83.75%** |
+| Bird precision | 69.47% | **79.83%** |
+| Bird recall | 20.63% | **90.31%** |
+| Bird F1 | 0.3181 | **0.8475** |
+| Non-bird false-positive rate | 9.06% | 22.81% |
+
+The Random Forest improves accuracy and Bird F1 while producing more non-bird false positives. The FFT comparator is an experimental software rule. Field false-alarm reduction remains to be validated against the original Arduino controller.
+
+![Smart Scarecrow held-out model evaluation](projects/smart-scarecrow-ml/docs/figures/benchmark/model_performance.png)
+
+**Arduino foundation and contribution.** I developed the original school-project control program integrating **two ultrasonic sensors, two PIR sensors and a Waveshare sound sensor** with two servo arms, RGB indication and a buzzer. It includes a standby/alarm/cooldown state machine and a 64-point FFT acoustic filter. The later audio/ML extension used **AI-assisted implementation**, with methods, code and evaluation records available for inspection.
+
+**Current prototype.** Random Forest inference and MFCC extraction run on the host computer. Real board acquisition produced **30 frames / 7,680 ADC samples**, currently unlabelled and discontinuous. The new actuator firmware has been compiled, with assembled-system testing and continuous target-sensor validation still pending. A separate firmware revision reduces static SRAM from **1,767 B to 939 B**.
+
+[Explore the project](projects/smart-scarecrow-ml/) · [Feature extraction code](projects/smart-scarecrow-ml/scarecrow/features.py) · [Training and evaluation code](projects/smart-scarecrow-ml/scarecrow/model.py) · [Saved experiment results](projects/smart-scarecrow-ml/docs/experiments/) · [Technical report](projects/smart-scarecrow-ml/docs/TECHNICAL_REPORT_ZH.md)
+
+[Original Arduino master](projects/smart-scarecrow-ml/firmware/originals/5CCE2EMP_Control_SG90_HC-SR04/5CCE2EMP_Control_SG90_HC-SR04.ino) · [Hardware case study](projects/smart-scarecrow-ml/docs/HARDWARE_CASE_STUDY.md)
+
+## Computational modeling: behavioral SRAM stability
 
 **Method.** Model a pair of cross-coupled inverter voltage-transfer curves, apply independent threshold variation, and extract static noise margin over 10,000 samples and nine supply voltages. Compare the batched calculation against an independent reference and quantify finite-sample uncertainty.
 
@@ -23,7 +61,7 @@ Projects exploring **electronics and computer engineering** through circuit anal
 
 [Read the study and reproduce it →](https://github.com/c18663979619-cpu/sram-reliability-monte-carlo/tree/70023883ea8ac17d4296a5396efb0eae3d4ac80e)
 
-## 02 · Circuit and hardware design: BJT astable multivibrator
+## Circuit and hardware design: BJT astable multivibrator
 
 **Method.** Size the timing network, interpret transient switching, adapt the schematic for a battery and LEDs, and place/route a two-layer through-hole PCB. Completed as an individual 5CCE2EMP course design project.
 
@@ -35,27 +73,13 @@ Projects exploring **electronics and computer engineering** through circuit anal
 
 [Explore the design case study →](projects/bjt-astable-multivibrator-pcb/)
 
-## 03 · Machine learning for circuit analysis — In progress
+## Machine learning for circuit analysis — In progress
 
 **Question.** Can a learned surrogate approximate the behavioral SRAM calculation accurately enough to support faster parameter studies?
 
 **Current milestone.** Reuse 10,000 synthetic samples at 1.0 V, fit training-mean and linear-regression baselines, and evaluate on 2,000 held-out samples. Both give approximately **9.57 mV MAE**; raw linear regression offers no meaningful improvement. Nonlinear modeling, multi-voltage generalization, and timing experiments are planned.
 
 [View the initial experiment and roadmap →](projects/ml-sram-surrogate/)
-
-## 04 · Arduino hardware and machine learning: Smart Scarecrow
-
-**Hardware foundation.** For a school Smart Scarecrow project, I developed the Arduino program integrating **five sensors** (two ultrasonic, two PIR and a Waveshare sound sensor), **two servo arms, an RGB LED and a buzzer** on a Kona328 / ATmega328P. The original controller includes a standby/alarm/cooldown state machine, PIR rising-edge confirmation, stepped servo movement and a 64-point FFT acoustic filter.
-
-**Build on the completed system.** The ML extension investigates the sound channel using 37 acoustic features and a Random Forest, while preserving the embedded controller's role. A separate firmware repair reduces static SRAM from **1,767 B to 939 B**. A real capture records **30 frames / 7,680 ADC samples** from the connected board.
-
-**Measured ML result.** On 640 held-out windows from 28 recording sources, RF achieves **83.75% accuracy** and **0.8475 Bird F1**, versus **55.78%** and **0.3181** for an experimental FFT baseline. The baseline is not a replay of the original Arduino firmware. The RF false-positive rate is **22.81%**, above the baseline's **9.06%**; reducing field false alarms remains an open engineering task.
-
-[Inspect my original Arduino master →](projects/smart-scarecrow-ml/firmware/originals/5CCE2EMP_Control_SG90_HC-SR04/5CCE2EMP_Control_SG90_HC-SR04.ino) · [Hardware design and system behavior →](projects/smart-scarecrow-ml/docs/HARDWARE_CASE_STUDY.md) · [Full project and ML experiments →](projects/smart-scarecrow-ml/)
-
-![Smart Scarecrow source-disjoint evaluation](projects/smart-scarecrow-ml/docs/figures/benchmark/model_performance.png)
-
-*The school implementation is completed as reported by the author. The ML extension is a research prototype: inference runs on the host, and the new actuator firmware has been compiled but not tested on the assembled system. Source audio and model binaries are not published.*
 
 ## Research approach
 
@@ -65,5 +89,5 @@ Projects exploring **electronics and computer engineering** through circuit anal
 - Test numerical methods and separate simulation, design checks, and measurement.
 - Use discrepancies to identify the next useful experiment.
 
-**Current interests:** electronic circuits, computer engineering, reliability modeling, and reproducible engineering analysis.
+**Current interests** include machine learning, signal processing, intelligent sensing, embedded systems, AI hardware, electronic circuits and reliability modeling.
 
